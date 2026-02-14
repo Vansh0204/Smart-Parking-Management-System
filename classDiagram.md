@@ -1,50 +1,66 @@
-# Class Diagram – Smart Parking Management System
-
-## Core Classes
-
-User (abstract)
-- userId
-- name
-- role
-
-Driver extends User
-Admin extends User
-
-Vehicle (abstract)
-- vehicleId
-- vehicleNumber
-
-Car extends Vehicle
-Bike extends Vehicle
-ElectricVehicle extends Vehicle
-
-ParkingLot
-- lotId
-- name
-- location
-- slots
-
-ParkingSlot
-- slotId
-- status
-
-Reservation
-- reservationId
-- startTime
-- endTime
-- status
-
-Payment
-- paymentId
-- amount
-- status
 
 ---
 
-## Relationships
+# ✅ **4️⃣ classDiagram.md**
 
-- Driver "owns" Vehicle
-- ParkingLot "contains" ParkingSlot
-- Driver "creates" Reservation
-- Reservation "maps to" ParkingSlot
-- Reservation "generates" Payment
+```md
+# Class Diagram – Smart Parking Management System
+
+```mermaid
+classDiagram
+
+    class User {
+        +int id
+        +string name
+        +string role
+    }
+
+    class Driver
+    class Admin
+
+    User <|-- Driver
+    User <|-- Admin
+
+    class Vehicle {
+        +int id
+        +string vehicleNumber
+        +string vehicleType
+    }
+
+    class Car
+    class Bike
+    class ElectricVehicle
+
+    Vehicle <|-- Car
+    Vehicle <|-- Bike
+    Vehicle <|-- ElectricVehicle
+
+    class ParkingLot {
+        +int id
+        +string name
+        +string location
+    }
+
+    class ParkingSlot {
+        +int id
+        +string status
+    }
+
+    class Reservation {
+        +int id
+        +datetime startTime
+        +datetime endTime
+        +string status
+    }
+
+    class Payment {
+        +int id
+        +float amount
+        +string status
+    }
+
+    Driver --> Vehicle : owns
+    ParkingLot --> ParkingSlot : contains
+    Driver --> Reservation : creates
+    Reservation --> ParkingSlot : assigned_to
+    Reservation --> Payment : generates
