@@ -1,9 +1,3 @@
-
----
-
-# ✅ **3️⃣ sequenceDiagram.md**
-
-```md
 # Sequence Diagram – Reserve Slot Flow
 
 ```mermaid
@@ -26,3 +20,4 @@ sequenceDiagram
     ReservationRepository-->>ParkingService: Confirmation
     ParkingService-->>ReservationController: Success response
     ReservationController-->>Driver: Reservation details
+```
