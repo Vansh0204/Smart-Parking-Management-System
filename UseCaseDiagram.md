@@ -1,34 +1,33 @@
 # Use Case Diagram – Smart Parking Management System
 
-## Actors
+```mermaid
+flowchart LR
 
-1. Driver
-2. Admin
+    Driver[Driver]
+    Admin[Admin]
 
----
+    UC1(View Parking Availability)
+    UC2(Reserve Parking Slot)
+    UC3(Cancel Reservation)
+    UC4(Vehicle Entry)
+    UC5(Vehicle Exit)
+    UC6(View Booking History)
 
-## Driver Use Cases
+    UA1(Manage Parking Lots)
+    UA2(Manage Parking Slots)
+    UA3(Configure Pricing Strategy)
+    UA4(Monitor Occupancy)
+    UA5(View Reports)
 
-- View Parking Availability
-- Reserve Parking Slot
-- Cancel Reservation
-- Vehicle Entry
-- Vehicle Exit
-- View Booking History
+    Driver --> UC1
+    Driver --> UC2
+    Driver --> UC3
+    Driver --> UC4
+    Driver --> UC5
+    Driver --> UC6
 
----
-
-## Admin Use Cases
-
-- Add / Manage Parking Lots
-- Add / Manage Parking Slots
-- Configure Pricing Strategy
-- Monitor Occupancy
-- View Reports & Revenue
-
----
-
-## Relationships
-
-Driver → interacts with reservation & parking operations  
-Admin → interacts with configuration & monitoring operations
+    Admin --> UA1
+    Admin --> UA2
+    Admin --> UA3
+    Admin --> UA4
+    Admin --> UA5
