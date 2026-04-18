@@ -210,22 +210,22 @@ function App() {
 
   return (
     <div className="app-container">
-      <header style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
+      <header>
         <div className="logo">
           <h1>NexusPark</h1>
         </div>
         
-        <div style={{ marginLeft: 'auto', display: 'flex', gap: '1rem', alignItems: 'center' }}>
-          <div style={{ fontWeight: 'bold', color: 'var(--accent-primary)', fontSize: '1.2rem', padding: '0.5rem 1rem', background: 'rgba(59, 130, 246, 0.1)', borderRadius: '20px' }}>
-             {role} Privileges
+        <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+          <div style={{ fontWeight: 'bold', color: 'var(--accent-primary)', fontSize: '0.8rem', padding: '0.4rem 0.8rem', background: 'rgba(37, 99, 235, 0.1)', borderRadius: '20px', whiteSpace: 'nowrap' }}>
+             {role}
           </div>
-          <button style={{ background: 'transparent', border: '1px solid rgba(255,255,255,0.2)', color: 'white', padding: '0.6rem', borderRadius: '50%', cursor: 'pointer' }} onClick={() => setIsAuth(false)}>
-             ✖
+          <button style={{ background: 'transparent', border: '1px solid #e2e8f0', color: '#64748b', padding: '0.4rem', borderRadius: '50%', width: '32px', height: '32px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }} onClick={() => setIsAuth(false)}>
+             ✕
           </button>
         </div>
       </header>
 
-      <main className="dashboard" style={{ gridTemplateColumns: '1fr 3fr' }}>
+      <main className="dashboard">
         <aside>
           {role === 'Admin' && (
             <div className="glass-card" style={{ marginBottom: '1.5rem' }}>
