@@ -4,7 +4,7 @@ A robust, full-stack parking management solution emphasizing clean architecture,
 
 ## 🚀 Live Demo
 - **Backend API**: `https://smart-parking-management-system-mwiw.onrender.com`
-- **Frontend Dashboard**: [Your Vercel URL Here]
+- **Frontend Dashboard**: `https://smart-parking-management-system-topaz.vercel.app/`
 
 ## 🔐 Credentials
 - **Admin Access**: 
@@ -38,5 +38,5 @@ npm install
 npm run dev
 ```
 
-## 📜 Architecture Summary (75% Backend Focus)
+## 📜 Architecture Summary
 The backend is built with a strictly decoupled **Controller-Service-Repository** architecture. Logic is encapsulated within services, while repositories handle data persistence (currently in-memory Maps). 
