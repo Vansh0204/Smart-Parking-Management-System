@@ -20,6 +20,8 @@ interface Reservation {
   username: string;
 }
 
+const API_BASE = 'https://smart-parking-management-system-mwiw.onrender.com';
+
 function App() {
   const [isAuthenticated, setIsAuth] = useState(false);
   const [role, setRole] = useState<Role>('Driver');
@@ -35,8 +37,8 @@ function App() {
   const fetchData = async () => {
     try {
       const [slotsRes, resRes] = await Promise.all([
-        fetch('http://localhost:3001/api/slots'),
-        fetch('http://localhost:3001/api/reservations')
+        fetch(`${API_BASE}/api/slots`),
+        fetch(`${API_BASE}/api/reservations`)
       ]);
       if (slotsRes.ok) setSlots(await slotsRes.json());
       if (resRes.ok) setReservations(await resRes.json());
@@ -67,7 +69,7 @@ function App() {
       };
       
       try {
-        const res = await fetch('http://localhost:3001/api/login', {
+        const res = await fetch(`${API_BASE}/api/login`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ username: target.username.value, password: target.password.value })
@@ -166,7 +168,7 @@ function App() {
     }
 
     try {
-      const response = await fetch('http://localhost:3001/api/reserve', {
+      const response = await fetch(`${API_BASE}/api/reserve`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -193,7 +195,7 @@ function App() {
 
   const handleRelease = async (slotId: string) => {
     try {
-      const response = await fetch('http://localhost:3001/api/release', {
+      const response = await fetch(`${API_BASE}/api/release`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ slotId }),
