@@ -61,6 +61,7 @@ function App() {
   }, [isAuthenticated]);
 
   if (!isAuthenticated) {
+    const [showPass, setShowPass] = useState(false);
     const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       const target = e.target as typeof e.target & {
@@ -100,9 +101,16 @@ function App() {
               <label>Username</label>
               <input name="username" type="text" placeholder="e.g., admin" required />
             </div>
-            <div className="form-group" style={{ textAlign: 'left' }}>
+            <div className="form-group" style={{ textAlign: 'left', position: 'relative' }}>
               <label>Password</label>
-              <input name="password" type="password" placeholder="e.g., admin123" required />
+              <input name="password" type={showPass ? "text" : "password"} placeholder="e.g., admin123" required />
+              <button 
+                type="button" 
+                onClick={() => setShowPass(!showPass)}
+                style={{ position: 'absolute', right: '10px', top: '32px', background: 'none', border: 'none', cursor: 'pointer', fontSize: '0.8rem', color: 'var(--accent-primary)' }}
+              >
+                {showPass ? "Hide" : "Show"}
+              </button>
             </div>
             <button type="submit" className="btn" style={{ marginTop: '1rem' }}>Authenticate</button>
           </form>
@@ -266,6 +274,24 @@ function App() {
               <span>$15.00 / hr</span>
             </div>
           </div>
+
+          {role === 'Driver' && (
+            <div className="glass-card" style={{ marginBottom: '1.5rem', borderLeft: '4px solid var(--accent-primary)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                 <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--bg-dark)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem', fontWeight: 'bold', color: 'var(--accent-primary)' }}>
+                   {username.charAt(0).toUpperCase()}
+                 </div>
+                 <div>
+                    <h3 style={{ fontSize: '1rem', margin: 0 }}>Driver Profile</h3>
+                    <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>@{username}</p>
+                 </div>
+              </div>
+              <div style={{ marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid #f1f5f9', fontSize: '0.8rem' }}>
+                 <strong>Membership:</strong> Standard Driver<br/>
+                 <strong>Account Status:</strong> Active
+              </div>
+            </div>
+          )}
 
           {role === 'Driver' && timeString && (
              <div className="glass-card" style={{ background: 'var(--accent-gradient)' }}>
