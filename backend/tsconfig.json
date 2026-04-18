@@ -8,5 +8,6 @@
     "strict": true,
     "types": ["node", "jest"]
   },
-  "include": ["src/**/*", "tests/**/*"]
+  "include": ["src/**/*"],
+  "exclude": ["tests/**/*", "node_modules"]
 }
