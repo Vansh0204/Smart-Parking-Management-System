@@ -26,6 +26,7 @@ function App() {
   const [isAuthenticated, setIsAuth] = useState(false);
   const [role, setRole] = useState<Role>('Driver');
   const [username, setUsername] = useState<string>('');
+  const [showPass, setShowPass] = useState(false);
   const [slots, setSlots] = useState<Slot[]>([]);
   const [reservations, setReservations] = useState<Reservation[]>([]);
   const [selectedSlot, setSelectedSlot] = useState<Slot | null>(null);
@@ -61,7 +62,6 @@ function App() {
   }, [isAuthenticated]);
 
   if (!isAuthenticated) {
-    const [showPass, setShowPass] = useState(false);
     const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       const target = e.target as typeof e.target & {
