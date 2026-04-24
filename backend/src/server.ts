@@ -32,7 +32,8 @@ const notifier = new DashboardNotifier();
 
 // Seed In-Memory Database
 for (let i = 1; i <= 10; i++) {
-  const slot = new ParkingSlot(`A-10${i}`, 'Zone-A');
+  const lane = i <= 5 ? 'Lane 1' : 'Lane 2';
+  const slot = new ParkingSlot(`A-10${i}`, lane);
   slot.attach(notifier);
   slotRepo.save(slot);
 }
@@ -40,6 +41,7 @@ for (let i = 1; i <= 10; i++) {
 // Routes
 app.post('/api/login', authController.login);
 app.get('/api/slots', parkingController.getAllSlots);
+app.post('/api/slots', parkingController.addSlot);
 app.post('/api/reserve', parkingController.reserveSlot);
 app.get('/api/reservations', parkingController.getReservations);
 app.post('/api/release', parkingController.releaseSlot);

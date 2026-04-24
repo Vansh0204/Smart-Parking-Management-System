@@ -7,9 +7,23 @@ export class ParkingController {
   public getAllSlots = (req: Request, res: Response): void => {
     try {
       const slots = this.parkingService.getAllSlots();
-      res.json(slots.map(s => ({ id: s.id, status: s.status })));
+      res.json(slots.map(s => ({ id: s.id, status: s.status, lane: s.lotId })));
     } catch (err: any) {
       res.status(500).json({ error: err.message });
+    }
+  };
+
+  public addSlot = (req: Request, res: Response): void => {
+    try {
+      const { slotId, lane } = req.body;
+      if (!slotId) {
+        res.status(400).json({ error: 'Missing slotId' });
+        return;
+      }
+      const slot = this.parkingService.addSlot(slotId, lane || 'Lane 1');
+      res.status(201).json({ message: 'Slot created', slot: { id: slot.id, status: slot.status, lane: slot.lotId } });
+    } catch (err: any) {
+      res.status(400).json({ error: err.message });
     }
   };
 

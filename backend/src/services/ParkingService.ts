@@ -20,6 +20,15 @@ export class ParkingService {
     return this.slotRepo.findAll();
   }
 
+  public addSlot(slotId: string, lane: string = 'Lane 1'): ParkingSlot {
+    if (this.slotRepo.findById(slotId)) {
+      throw new Error(`Slot ${slotId} already exists`);
+    }
+    const slot = new ParkingSlot(slotId, lane);
+    this.slotRepo.save(slot);
+    return slot;
+  }
+
   public reserveSlot(slotId: string, licensePlate: string, vehicleType: string, durationHours: number, startTime?: Date, username?: string): Reservation {
     const slot = this.slotRepo.findById(slotId);
     if (!slot) {

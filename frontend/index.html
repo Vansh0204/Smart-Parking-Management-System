@@ -4,7 +4,22 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>frontend</title>
+    <title>NexusPark — Smart Parking Management System</title>
+    <meta name="description" content="NexusPark is a premium smart parking management platform offering real-time slot tracking, instant reservations, and comprehensive analytics for modern urban infrastructure." />
+    <meta name="theme-color" content="#111111" />
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <!-- Flash prevention: apply saved theme before React mounts -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('nexuspark-theme');
+          if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
