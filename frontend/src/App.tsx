@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import './index.css';
 import { useToast } from './ToastContext';
-import { Search, MapPin, Activity, LayoutGrid, Users, Settings, Sun, Moon, LogOut, ChevronDown, CheckCircle2, Clock, Car, Bike, Zap, LogIn, ChevronRight, BarChart3, AlertCircle, Plus } from 'lucide-react';
+import { Search, Activity, LayoutGrid, Users, Settings, Sun, Moon, LogOut, ChevronDown, CheckCircle2, Clock, Car, Zap, ChevronRight, BarChart3, AlertCircle, Plus } from 'lucide-react';
 
 type SlotStatus = 'Available' | 'Reserved' | 'Occupied';
 type Role = 'Admin' | 'Driver';
